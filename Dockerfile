@@ -3,7 +3,7 @@ FROM debian:latest
 MAINTAINER Moeyard TRAN "moeyard@moeyard.com"
 
 RUN apt-get update && \
-	apt-get install -y shadowsocks && \
+	apt-get install -y wget && \
 	wget http://soft.vpser.net/lnmp/lnmp1.5.tar.gz -cO lnmp1.5.tar.gz && \
   tar zxf lnmp1.5.tar.gz && \
   cd lnmp1.5 && \
@@ -12,4 +12,6 @@ RUN apt-get update && \
 
 RUN echo 'root:root' |chpasswd
 
+EXPOSE 22
 EXPOSE 80
+EXPOSE 443
